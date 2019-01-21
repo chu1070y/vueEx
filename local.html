@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <logo></logo>
+    <sub1></sub1>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+    //global component
+    Vue.component("logo", {
+        template: "<h1>로고</h1>"
+    })
+
+    //local component
+    const sub1 = {
+        template: "<h2>서브로고</h2>"
+    }
+
+    //이 앱이 어떤 컴포넌트를 사용할 건지 알려주는 것..
+    const app1= new Vue({
+        el: "#app",
+        components:{
+            'sub1': sub1
+        }
+    })
+
+
+
+</script>
+
+</body>
+</html>

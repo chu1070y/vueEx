@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <button v-on:click="sort1()">점수순</button>
+
+    <ul>
+        <li v-for="obj in scores">
+            {{obj.mid}} : {{obj.score}} <b v-if="checkPass(obj.score)">합격</b> <b v-if="!checkPass(obj.score)">불합격</b>
+        </li>
+    </ul>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+        el:"#app",
+        data: {
+            scores:[
+                {mid:"user00", score:67},
+                {mid:"user01", score:17},
+                {mid:"user02", score:27},
+                {mid:"user03", score:77},
+                {mid:"user04", score:47},
+                {mid:"user05", score:97}
+            ]
+        },
+        methods:{
+            checkPass:function(value){
+                return value > 50
+            },
+            sort1: function () {
+                this.scores = this.scores.sort((a,b) => a.score - b.score)
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>
